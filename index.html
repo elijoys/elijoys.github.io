@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eli Joy | Computer Engineering Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--y:#ffd400;--g:#8a8a8a}
+*{box-sizing:border-box;margin:0}
+body{font-family:'Space Grotesk',sans-serif;background:#000;color:#ddd}
+h1,h2,h3,.blk{font-family:'Archivo Black','Space Grotesk',sans-serif;text-transform:uppercase}
+a{color:inherit}
+html{scroll-behavior:smooth}
+nav{position:fixed;top:0;right:0;padding:22px 34px;display:flex;gap:36px;z-index:20;mix-blend-mode:difference}
+nav a{color:#fff;text-decoration:none;font-family:'Archivo Black';text-transform:uppercase;letter-spacing:.14em;font-size:.82rem;padding-bottom:5px;border-bottom:2px solid transparent;transition:.2s}
+nav a:hover{border-color:#fff}
+h2.t{text-align:center;font-size:clamp(2rem,4.5vw,3.4rem);letter-spacing:.06em}
+h2.t::after{content:'';display:block;width:140px;height:8px;margin:16px auto 0;background:linear-gradient(90deg,#000 0 62%,var(--y) 62%)}
+#contact h2.t::after{background:linear-gradient(90deg,#fff 0 62%,var(--y) 62%)}
+#contact{min-height:70vh;background:#000;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:48px;padding:80px 20px}
+.cb{display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
+/* landing */
+#home{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(28px,5vh,56px);padding:24px}
+#name{width:min(78vw,1100px)}
+#name path{fill:none;stroke-linejoin:miter}
+.L .b{stroke:var(--g);stroke-width:1.5;stroke-linecap:square;animation:lit 2s ease-in-out infinite;animation-delay:calc(var(--i)*.22s)}
+@keyframes lit{0%,100%{stroke:var(--g);filter:none}12%,32%{stroke:var(--y);filter:drop-shadow(0 0 .5px var(--y)) drop-shadow(0 0 2px var(--y))}65%{stroke:var(--g);filter:none}}
+.btn{display:inline-block;border:2px solid #fff;color:#fff;background:transparent;text-decoration:none;padding:12px 30px;font-family:'Archivo Black';letter-spacing:.12em;text-transform:uppercase;font-size:.95rem;transition:.2s}
+.btn:hover{background:#fff;color:#000}
+.brow{display:flex;gap:18px;flex-wrap:wrap;justify-content:center}
+.btn.gh{background:#2ea043;color:#000;border-color:#fff}.btn.gh:hover{background:#3fb950;color:#000}
+.btn.li{background:#0a66c2;color:#000;border-color:#fff}.btn.li:hover{background:#3b8be0;color:#000}
+.rule{border:0;height:4px;background:#000;margin:18px 0 24px}
+.nt{display:block;font-family:'Space Grotesk';text-transform:none;letter-spacing:0;font-weight:500;font-size:.72rem;margin-top:6px}
+.dark-btn{border-color:#000;color:#000}.dark-btn:hover{background:#000;color:#fff}
+#cue{color:var(--g);text-align:center;text-decoration:none;letter-spacing:.3em;font-size:.8rem;text-transform:uppercase;animation:flash 1.8s ease-in-out infinite}
+#cue svg{display:block;margin:8px auto 0}
+@keyframes flash{50%{opacity:.2}}
+/* projects */
+#projects{background:#fff;color:#000;padding:90px 20px 120px}
+.track{position:relative;max-width:1100px;margin:80px auto 0;display:grid;grid-template-columns:repeat(var(--cols,3),1fr);gap:80px 50px}
+#wires{position:absolute;inset:0;width:100%;height:100%;z-index:0;overflow:visible;pointer-events:none}
+#wires path{fill:none;stroke-width:4}
+.w0{stroke:#9a9a9a}.w1{stroke:var(--y);stroke-dasharray:60 140;animation:dash 1.6s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-200}}
+@keyframes flow{to{background-position:0 180px}}@keyframes flowx{to{background-position:180px 0}}
+.p{position:relative;z-index:1;width:100%;max-width:330px;justify-self:center;background:#000;color:#fff;padding:14px 14px 0;text-decoration:none;box-shadow:0 10px 24px #0003;transition:.25s;cursor:pointer}
+.p:hover{transform:translateY(-6px) rotate(-1deg);box-shadow:0 18px 30px #0004}
+.p img{width:100%;aspect-ratio:1;object-fit:cover;display:block;background:#222}
+.p .cap{padding:16px 4px 18px;text-align:center;font-family:'Archivo Black';text-transform:uppercase;font-size:.95rem;line-height:1.25}
+.p small{display:block;font-family:'Space Grotesk';color:#aaa;font-size:.7rem;letter-spacing:.1em;margin-top:6px}
+.wip{position:absolute;top:-10px;right:-10px;background:var(--y);color:#000;font-family:'Archivo Black';font-size:.65rem;padding:5px 9px;text-transform:uppercase}
+/* detail */
+#detail{display:none;background:#fff;color:#000;min-height:100vh;padding:90px 24px 100px}
+#detail .in{max-width:1000px;margin:auto}
+#back{position:fixed;top:18px;left:18px;width:46px;height:46px;border:2px solid #000;background:#fff;display:grid;place-items:center;text-decoration:none;z-index:9;transition:.2s}
+#back:hover{background:#000}#back:hover path{stroke:#fff}
+#detail h1{font-size:clamp(1.8rem,4.5vw,3.2rem);line-height:1.05}
+.course{color:#666;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;margin-bottom:12px}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px;margin:34px 0}
+#detail h3{font-size:.95rem;margin-bottom:10px;border-bottom:3px solid var(--y);display:inline-block}
+#detail li{margin:0 0 6px 18px;line-height:1.45}
+.sum{font-size:1.15rem;line-height:1.55;margin:18px 0 6px;max-width:75ch}
+.gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin:16px 0 40px}
+.gal img,.gal video{width:100%;background:#000;border:3px solid #000;display:block}
+.gal figcaption{font-size:.75rem;color:#666;margin-top:4px}
+.ph{border:2px dashed #aaa;padding:30px;text-align:center;color:#888}
+</style></head><body>
+
+<main id="main">
+<nav><a href="#projects">Projects</a><a href="#contact">Contact</a></nav>
+<section id="home">
+  <svg id="name" viewBox="-1.5 -1.5 43.5 9.5" aria-label="ELI JOY"></svg>
+  <div class="brow"><a class="btn gh" href="https://github.com/elijoys/Projects" target="_blank" rel="noopener">My GitHub</a><a class="btn li" href="https://www.linkedin.com/in/robert-joy/" target="_blank" rel="noopener">My LinkedIn</a></div>
+  <a id="cue" href="#projects">Projects
+    <svg width="26" height="14" viewBox="0 0 26 14"><path d="M2 2l11 10L24 2" fill="none" stroke="#8a8a8a" stroke-width="2.5"/></svg></a>
+</section>
+<section id="projects"><h2 class="t">Projects</h2><div class="track" id="track"></div></section>
+<section id="contact"><h2 class="t">Contact</h2><div class="cb"><a class="btn" href="https://www.linkedin.com/in/robert-joy/" target="_blank" rel="noopener">LinkedIn</a><a class="btn" href="mailto:elijoy5005@gmail.com">elijoy5005@gmail.com</a></div></section>
+</main>
+
+<div id="detail"><a id="back" href="#projects" aria-label="Back"><svg width="22" height="22" viewBox="0 0 22 22"><path d="M13 3L5 11l8 8M5 11h14" fill="none" stroke="#000" stroke-width="2.5"/></svg></a><div class="in" id="din"></div></div>
+
+<script>
+const A='assets/', GH='https://github.com/elijoys/Projects/tree/main/';
+// ---- Edit projects here ----
+const NOTE="Note: I'm trying to recover old files";
+const P=[
+{id:'pov',t:'Senior Capstone: POV Holographic Fan Display',short:'POV Holographic Fan',c:'Senior Capstone',gh:GH+'POV_Fan',cover:'POVCover.jpeg',
+ sum:'Sub-$100 holographic fan that lets you upload and display any image via a custom web application HMI. Nordic UART streams data packages via BLE to the rotating hub controller.',
+ hw:['2x Pico W microcontrollers','Custom PCB blades','24V BLDC motor','Fully 3D-printed chassis','Slip ring','DC power supply'],
+ sw:['HTML / JavaScript: HMI','Python: motor driver, BLE, LED driver, LED timing'],
+ g:[['POVPoster.jpg','Project poster'],['POVFanVid1.mp4','Fan demo 1'],['POVFanVid2.mp4','Fan demo 2']]},
+{id:'acl',t:'Bioinstrumentation Course: ACL Injury Recovery System',short:'ACL Injury Recovery System',c:'Bioinstrumentation Course',gh:GH+'ACL_Recovery',cover:'ACL_Cover.jpg',
+ sum:'Device that senses and quantifies hamstring asymmetry, identifies injury risk, provides real-time feedback, and tracks progress over time. Records surface EMG from both hamstrings, converts data to estimated torque, and computes limb symmetry index (LSI) for meaningful feedback.',
+ hw:['Surface EMG electrodes','Dual-channel EMG amplifier & filter circuits','Arduino Due microcontroller','16x2 LCD','DC power supply'],
+ sw:['Simplified C++ (Arduino IDE)'],
+ g:[['ACL_Poster.jpg','Project poster'],['ACL_Circuit.png','Circuit diagram'],['ACL_small.mp4','Demo video']]},
+{id:'ai1',t:'AI in Computing and Robotics Research: Project 1: Cocktail Recommender',short:'Cocktail Recommender',c:'AI Research · Project 1',gh:GH+'Cocktail_Recommender',cover:'AIProject1Cover.png',
+ sum:'Recommends the 5 best cocktails (output) based on ingredients you have at home (input), as well as directions for making your favorite.',
+ hw:[],sw:['Unsupervised ML model','TF-IDF, Cosine Similarity, and Clustering','Python'],
+ g:[],pdf:['AIProject1_Slideshow.pdf','View the full slideshow (PDF)']},
+{id:'ai2',t:'AI in Computing and Robotics Research: Project 2: Wildfire Detection from Image Data',short:'Wildfire Detection',c:'AI Research · Project 2',gh:GH+'FLAME_ML',note:NOTE,cover:'AIProject2Cover_-_FLAME2.png',
+ sum:'Analyzes aerial images of forested areas (both inflamed and non-inflamed) and determines whether or not there is a wildfire.',
+ hw:[],sw:['Supervised image classification ML model','FLAME 2 Dataset','Python'],g:[]},
+{id:'ai3',t:'AI in Computing and Robotics Research: Project 3: 3D Digital Twin Robotic Object Interaction',short:'3D Digital Twin Robotics',c:'AI Research · Project 3',gh:GH+'Unity_MLA',note:NOTE,cover:'AIProject3Cover.png',
+ sum:'Trained a virtual car to navigate obstacles and avoid walls, using its own sensor data and sensor data from a drone flying overhead.',
+ hw:[],sw:['Reinforcement learning','Unity environment, ML-Agents','C++'],
+ g:[['AIProject3_-_Graph.png','Cumulative reward during training'],['AIProject3_-_video1.mp4','Very basic training']]},
+{id:'rt',t:'Microcontroller Project: Reaction Timer',short:'Reaction Timer',c:'Microcontroller Project',gh:'',cover:'ReactionTimer_Cover___overall_circuit.png',
+ sum:'Reaction timer that counts up on a seven-segment display, then stops counting once a button is pressed. Full life cycle embedded project: requirements, implementation, debugging, demo.',
+ hw:['Seven-segment display + driver','4-bit counter','4-to-16 bit decoder','Button'],sw:['PPS peripheral mapping','C'],
+ g:[['ReactionTimer_-_4bitcounter.png','4-bit counter'],['ReactionTimer_-_4to16bitdecoder.png','4-to-16 decoder']]},
+{id:'asr',t:'Automated Sensor Robot',short:'Automated Sensor Robot',c:'In progress',gh:GH+'Automated_Sensor_Robot',cover:'ASRCover___Circuit.jpeg',wip:1,
+ sum:'Autonomous mobile robot that can sense its environment, detect obstacles, make navigation decisions, and drive autonomously.',
+ hw:['ESP32','2x TT geared DC motors','TB6612FNG dual motor driver','HC-SR04 ultrasonic sensor','SG90 servo','4xAA battery pack','Wheels'],
+ sw:['Python: measure distance, sweep sensor, understand local environment, choose desired action, manage robot behavior/state, control physical motors, safety override, coordinate all systems'],g:[]}
+];
+// ---- Name made of IC traces ----
+const LET={E:'M4 0H0V6H4M0 3H3',L:'M0 0V6H4',I:'M2 0V6',J:'M4 0V6H0V4',O:'M0 0H4V6H0Z',Y:'M0 0V3H4V0M2 3V6'};
+const xs=[0,7,12,21.4,28.4,35.4];
+document.getElementById('name').innerHTML='ELIJOY'.split('').map((l,i)=>`<g class="L" transform="translate(${xs[i]} 0)" style="--i:${i}"><path class="b" d="${LET[l]}"/></g>`).join('');
+// ---- Project squares ----
+const tr=document.getElementById('track');
+tr.innerHTML=P.map(p=>`<a class="p" href="#/${p.id}">${p.wip?'<span class="wip">In progress</span>':''}<img src="${A+p.cover}" alt="${p.short}"><div class="cap">${p.short}<small>${p.c}</small></div></a>`).join('')+'<svg id="wires"><path class="w0" pathLength="1000"/><path class="w1" pathLength="1000"/></svg>';
+function layout(){const n=innerWidth<640?1:innerWidth<1000?2:3;tr.style.setProperty('--cols',n);
+ const cs=[...tr.querySelectorAll('.p')];cs.forEach((c,i)=>{const r=Math.floor(i/n),k=i%n;c.style.gridRow=r+1;c.style.gridColumn=r%2?n-k:k+1});
+ const L=cs.length-1,lone=n===3&&L>0&&cs.length%3===1;if(lone)cs[L].style.gridColumn=2;
+ const t=tr.getBoundingClientRect();if(!t.width)return;
+ const pts=cs.map(c=>{const b=c.getBoundingClientRect();return[b.left-t.left+b.width/2,b.top-t.top+b.height/2]});
+ if(lone)pts.splice(L,0,[pts[L-1][0],pts[L][1]]);
+ const d='M'+pts.join('L');
+ tr.querySelectorAll('path').forEach(p=>p.setAttribute('d',d))}
+addEventListener('resize',layout);addEventListener('load',layout);
+// ---- Detail pages ----
+const vid=f=>/\.(mp4|mov)$/i.test(f), li=a=>a.map(x=>`<li>${x}</li>`).join('');
+function show(){
+  const m=location.hash.match(/^#\/(\w+)/), p=m&&P.find(x=>x.id===m[1]);
+  const d=document.getElementById('detail'),mn=document.getElementById('main');
+  if(!p){d.style.display='none';mn.style.display='block';document.body.style.background='#000';
+    document.querySelector('nav').style.display='flex';layout();const e=document.getElementById(location.hash.slice(1));if(e)e.scrollIntoView();return}
+  mn.style.display='none';document.querySelector('nav').style.display='none';d.style.display='block';document.body.style.background='#fff';scrollTo(0,0);
+  const gal=p.g.length?p.g.map(([f,c])=>`<figure>${vid(f)?`<video controls muted preload="metadata" playsinline src="${A+f}"></video>`:`<img src="${A+f}" alt="${c}" loading="lazy">`}<figcaption>${c}</figcaption></figure>`).join(''):'';
+  document.getElementById('din').innerHTML=`<div class="course">${p.c}</div><h1>${p.t}</h1><hr class="rule">${p.gh?`<a class="btn dark-btn" href="${p.gh}" target="_blank" rel="noopener">View project on GitHub${p.note?`<small class="nt">${p.note}</small>`:''}</a>`:''}<p class="sum">${p.sum}</p>
+  <div class="cols">${p.hw.length?`<div><h3>Hardware</h3><ul>${li(p.hw)}</ul></div>`:''}<div><h3>${p.hw.length?'Software':'Tech'}</h3><ul>${li(p.sw)}</ul></div></div>
+  <h3>Gallery</h3><div class="gal"><figure><img src="${A+p.cover}" alt="cover"><figcaption>Cover</figcaption></figure>${gal}</div>
+  ${p.pdf?`<p style="margin-bottom:30px"><a class="btn dark-btn" href="${A+p.pdf[0]}" target="_blank">${p.pdf[1]}</a></p>`:''}`;
+}
+addEventListener('hashchange',show);show();
+</script></body></html>
